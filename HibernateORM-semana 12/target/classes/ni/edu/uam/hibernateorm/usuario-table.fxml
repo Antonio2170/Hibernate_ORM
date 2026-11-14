@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ni.edu.uam.hibernateorm.controller.UsuarioTableController"
+            prefHeight="600.0" prefWidth="960.0"
+            style="-fx-background-color: #F8FAFC; -fx-font-family: 'Segoe UI', sans-serif;">
+
+    <!-- 1. Header Superior Institucional -->
+    <top>
+        <VBox spacing="0">
+            <HBox alignment="CENTER_LEFT" spacing="12.0"
+                  style="-fx-background-color: #0B1B3D; -fx-padding: 12px 24px;">
+                <!-- Branding UAM -->
+                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                    <Label text="UNIVERSIDAD AMERICANA"
+                           style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #C59B27;"/>
+                    <Label text="Directorio Institucional de Usuarios"
+                           style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #FFFFFF;"/>
+                </VBox>
+
+                <!-- Info Usuario Activo & Cerrar Sesión -->
+                <HBox alignment="CENTER_RIGHT" spacing="16.0">
+                    <Label fx:id="lblUsuarioLogueado" text="Usuario Conectado"
+                           style="-fx-text-fill: #E2E8F0; -fx-font-size: 12px; -fx-font-weight: bold;"/>
+                    <Hyperlink text="Cerrar Sesión" onAction="#cerrarSesion"
+                               style="-fx-text-fill: #FCA5A5; -fx-font-size: 12px; -fx-underline: false; -fx-font-weight: bold;"/>
+                </HBox>
+            </HBox>
+
+            <!-- 2. Barra de Control: Búsqueda + 1 Botón (+ Nuevo Usuario) -->
+            <HBox alignment="CENTER_LEFT" spacing="14.0">
+                <padding>
+                    <Insets top="18.0" right="24.0" bottom="14.0" left="24.0"/>
+                </padding>
+
+                <!-- Buscador de usuarios -->
+                <TextField fx:id="txtBuscar"
+                           promptText="Buscar por nombre, apellido, correo o usuario..."
+                           prefWidth="380.0"
+                           HBox.hgrow="ALWAYS"
+                           style="-fx-background-color: #FFFFFF; -fx-background-radius: 6px; -fx-border-color: #CBD5E1; -fx-border-radius: 6px; -fx-padding: 8px 12px; -fx-font-size: 13px;"/>
+
+                <!-- Único botón de acción superior -->
+                <Button text="+ Nuevo Usuario"
+                        onAction="#nuevoRegistro"
+                        prefWidth="160.0"
+                        style="-fx-background-color: #162E62; -fx-text-fill: #FFFFFF; -fx-font-size: 13px; -fx-font-weight: bold; -fx-background-radius: 6px; -fx-padding: 9px 16px; -fx-cursor: hand;"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- 3. Tabla de Usuarios con Columna de Acciones Directas -->
+    <center>
+        <VBox spacing="10.0">
+            <padding>
+                <Insets top="0" right="24.0" bottom="20.0" left="24.0"/>
+            </padding>
+
+            <TableView fx:id="tableUsuario" VBox.vgrow="ALWAYS"
+                       style="-fx-background-color: #FFFFFF; -fx-border-color: #E2E8F0; -fx-border-radius: 8px; -fx-background-radius: 8px;">
+                <columns>
+                    <TableColumn fx:id="colNombre" text="NOMBRE" prefWidth="150.0"/>
+                    <TableColumn fx:id="colApellido" text="APELLIDO" prefWidth="150.0"/>
+                    <TableColumn fx:id="colCorreo" text="CORREO INSTITUCIONAL" prefWidth="250.0"/>
+                    <TableColumn fx:id="colUsuario" text="USUARIO" prefWidth="140.0"/>
+                    <!-- Columna de Acciones Integrada (Editar / Eliminar por fila) -->
+                    <TableColumn fx:id="colAcciones" text="ACCIONES" prefWidth="160.0" style="-fx-alignment: CENTER;"/>
+                </columns>
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                </columnResizePolicy>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ni.edu.uam.hibernateorm.controller.RegistroController"
+            fitToWidth="true"
+            fitToHeight="true"
+            hbarPolicy="NEVER"
+            vbarPolicy="AS_NEEDED"
+            prefHeight="640.0" prefWidth="640.0"
+            style="-fx-background-color: #0F172A; -fx-background: #0F172A; -fx-font-family: 'Segoe UI', sans-serif;">
+
+    <StackPane alignment="CENTER">
+        <padding>
+            <Insets top="25.0" right="20.0" bottom="25.0" left="20.0"/>
+        </padding>
+
+        <VBox maxWidth="560.0"
+              spacing="22.0"
+              style="-fx-background-color: #1E293B; -fx-background-radius: 16px; -fx-border-color: #334155; -fx-border-radius: 16px; -fx-border-width: 1px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 20, 0, 0, 8);">
+            <padding>
+                <Insets top="32.0" right="36.0" bottom="32.0" left="36.0"/>
+            </padding>
+
+            <!-- Cabecera -->
+            <VBox spacing="6.0">
+                <Label text="UNIVERSIDAD AMERICANA"
+                       style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #EAB308; -fx-letter-spacing: 1.5;"/>
+                <Label text="Registro de Usuario"
+                       style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #F8FAFC;"/>
+                <Label text="Complete la información solicitada para registrar una nueva cuenta"
+                       style="-fx-font-size: 13px; -fx-text-fill: #94A3B8;"/>
+            </VBox>
+
+            <!-- Zona de Fotografía y Avatar -->
+            <HBox alignment="CENTER_LEFT" spacing="16.0">
+                <StackPane prefWidth="86.0" prefHeight="86.0"
+                           style="-fx-background-color: #0F172A; -fx-border-color: #475569; -fx-border-radius: 8px; -fx-background-radius: 8px;">
+                    <ImageView fx:id="imageFoto"
+                               fitHeight="82.0"
+                               fitWidth="82.0"
+                               preserveRatio="true"/>
+                </StackPane>
+                <VBox spacing="6.0" alignment="CENTER_LEFT">
+                    <Button text="Seleccionar Fotografía"
+                            onAction="#seleccionarFoto"
+                            style="-fx-background-color: #0F172A; -fx-border-color: #475569; -fx-border-radius: 8px; -fx-background-radius: 8px; -fx-padding: 8px 14px; -fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #F8FAFC; -fx-cursor: hand;"/>
+                    <Label text="Formatos recomendados: JPG o PNG"
+                           style="-fx-font-size: 12px; -fx-text-fill: #94A3B8;"/>
+                </VBox>
+            </HBox>
+
+            <!-- Campos Organizados -->
+            <VBox spacing="16.0">
+                <!-- Nombre y Apellido -->
+                <HBox spacing="12.0">
+                    <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+                        <Label text="Nombre" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #CBD5E1;"/>
+                        <TextField fx:id="txtNombre" promptText="Primer nombre"
+                                   style="-fx-background-color: #0F172A; -fx-text-fill: #F8FAFC; -fx-prompt-text-fill: #475569; -fx-background-radius: 8px; -fx-border-color: #475569; -fx-border-radius: 8px; -fx-padding: 10px 14px; -fx-font-size: 14px;"/>
+                    </VBox>
+                    <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+                        <Label text="Apellido" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #CBD5E1;"/>
+                        <TextField fx:id="txtApellido" promptText="Primer apellido"
+                                   style="-fx-background-color: #0F172A; -fx-text-fill: #F8FAFC; -fx-prompt-text-fill: #475569; -fx-background-radius: 8px; -fx-border-color: #475569; -fx-border-radius: 8px; -fx-padding: 10px 14px; -fx-font-size: 14px;"/>
+                    </VBox>
+                </HBox>
+
+                <!-- Correo Institucional -->
+                <VBox spacing="6.0">
+                    <Label text="Correo Institucional" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #CBD5E1;"/>
+                    <TextField fx:id="txtCorreo" promptText="ejemplo@uam.edu.ni"
+                               style="-fx-background-color: #0F172A; -fx-text-fill: #F8FAFC; -fx-prompt-text-fill: #475569; -fx-background-radius: 8px; -fx-border-color: #475569; -fx-border-radius: 8px; -fx-padding: 10px 14px; -fx-font-size: 14px;"/>
+                </VBox>
+
+                <!-- Nombre de Usuario -->
+                <VBox spacing="6.0">
+                    <Label text="Nombre de Usuario" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #CBD5E1;"/>
+                    <TextField fx:id="txtUsuario" promptText="Elija un usuario único"
+                               style="-fx-background-color: #0F172A; -fx-text-fill: #F8FAFC; -fx-prompt-text-fill: #475569; -fx-background-radius: 8px; -fx-border-color: #475569; -fx-border-radius: 8px; -fx-padding: 10px 14px; -fx-font-size: 14px;"/>
+                </VBox>
+
+                <!-- Contraseña y Confirmar Contraseña -->
+                <HBox spacing="12.0">
+                    <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+                        <Label text="Contraseña" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #CBD5E1;"/>
+                        <PasswordField fx:id="txtPassword" promptText="Ingrese contraseña"
+                                       style="-fx-background-color: #0F172A; -fx-text-fill: #F8FAFC; -fx-prompt-text-fill: #475569; -fx-background-radius: 8px; -fx-border-color: #475569; -fx-border-radius: 8px; -fx-padding: 10px 14px; -fx-font-size: 14px;"/>
+                    </VBox>
+                    <VBox spacing="6.0" HBox.hgrow="ALWAYS">
+                        <Label text="Confirmar Contraseña" style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #CBD5E1;"/>
+                        <PasswordField fx:id="txtConfirmaPassword" promptText="Repita la contraseña"
+                                       style="-fx-background-color: #0F172A; -fx-text-fill: #F8FAFC; -fx-prompt-text-fill: #475569; -fx-background-radius: 8px; -fx-border-color: #475569; -fx-border-radius: 8px; -fx-padding: 10px 14px; -fx-font-size: 14px;"/>
+                    </VBox>
+                </HBox>
+            </VBox>
+
+            <!-- Botones de Acción -->
+            <HBox alignment="CENTER_RIGHT" spacing="12.0">
+                <Button text="Regresar"
+                        onAction="#regresar"
+                        prefWidth="130.0"
+                        style="-fx-background-color: #0F172A; -fx-border-color: #475569; -fx-border-radius: 8px; -fx-background-radius: 8px; -fx-padding: 10px 16px; -fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #F8FAFC; -fx-cursor: hand;"/>
+                <Button text="Registrar Usuario"
+                        onAction="#registrar"
+                        prefWidth="160.0"
+                        style="-fx-background-color: #4F46E5; -fx-text-fill: #FFFFFF; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 8px; -fx-padding: 10px 16px; -fx-cursor: hand;"/>
+            </HBox>
+        </VBox>
+    </StackPane>
+</ScrollPane>

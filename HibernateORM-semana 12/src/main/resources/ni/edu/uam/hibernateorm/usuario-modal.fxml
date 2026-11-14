@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="ni.edu.uam.hibernateorm.controller.UsuarioModalController"
+      prefWidth="500.0"
+      spacing="18.0"
+      style="-fx-background-color: #FFFFFF; -fx-font-family: 'Segoe UI', sans-serif;">
+    <padding>
+        <Insets top="24.0" right="28.0" bottom="24.0" left="28.0"/>
+    </padding>
+
+    <!-- Cabecera del Modal -->
+    <VBox spacing="4.0">
+        <Label text="Editar Perfil de Usuario"
+               style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #0B1B3D;"/>
+        <Label text="Actualice la información y permisos del usuario"
+               style="-fx-font-size: 12px; -fx-text-fill: #64748B;"/>
+    </VBox>
+
+    <!-- Zona de Fotografía -->
+    <HBox alignment="CENTER_LEFT" spacing="14.0">
+        <StackPane prefWidth="80.0" prefHeight="80.0"
+                   style="-fx-background-color: #F1F5F9; -fx-border-color: #CBD5E1; -fx-border-radius: 8px; -fx-background-radius: 8px;">
+            <ImageView fx:id="imageFoto"
+                       fitWidth="76.0"
+                       fitHeight="76.0"
+                       preserveRatio="true"/>
+        </StackPane>
+        <VBox spacing="4.0" alignment="CENTER_LEFT">
+            <Button text="Cambiar Fotografía"
+                    onAction="#cambiarFoto"
+                    style="-fx-background-color: #FFFFFF; -fx-border-color: #CBD5E1; -fx-border-radius: 6px; -fx-background-radius: 6px; -fx-padding: 6px 12px; -fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #0F172A; -fx-cursor: hand;"/>
+            <Label text="Seleccione una imagen JPG o PNG"
+                   style="-fx-font-size: 11px; -fx-text-fill: #64748B;"/>
+        </VBox>
+    </HBox>
+
+    <!-- Formulario de Edición -->
+    <VBox spacing="12.0">
+        <HBox spacing="10.0">
+            <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+                <Label text="Nombre" style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #0F172A;"/>
+                <TextField fx:id="txtNombre" promptText="Nombre"
+                           style="-fx-background-color: #FFFFFF; -fx-background-radius: 6px; -fx-border-color: #CBD5E1; -fx-border-radius: 6px; -fx-padding: 8px 12px; -fx-font-size: 13px;"/>
+            </VBox>
+            <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+                <Label text="Apellido" style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #0F172A;"/>
+                <TextField fx:id="txtApellido" promptText="Apellido"
+                           style="-fx-background-color: #FFFFFF; -fx-background-radius: 6px; -fx-border-color: #CBD5E1; -fx-border-radius: 6px; -fx-padding: 8px 12px; -fx-font-size: 13px;"/>
+            </VBox>
+        </HBox>
+
+        <VBox spacing="4.0">
+            <Label text="Correo Institucional" style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #0F172A;"/>
+            <TextField fx:id="txtCorreo" promptText="correo@uam.edu.ni"
+                       style="-fx-background-color: #FFFFFF; -fx-background-radius: 6px; -fx-border-color: #CBD5E1; -fx-border-radius: 6px; -fx-padding: 8px 12px; -fx-font-size: 13px;"/>
+        </VBox>
+
+        <VBox spacing="4.0">
+            <Label text="Usuario" style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #0F172A;"/>
+            <TextField fx:id="txtUsuario" promptText="Nombre de usuario"
+                       style="-fx-background-color: #FFFFFF; -fx-background-radius: 6px; -fx-border-color: #CBD5E1; -fx-border-radius: 6px; -fx-padding: 8px 12px; -fx-font-size: 13px;"/>
+        </VBox>
+
+        <VBox spacing="4.0">
+            <Label text="Contraseña" style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #0F172A;"/>
+            <PasswordField fx:id="txtPassword" promptText="Contraseña del usuario"
+                           style="-fx-background-color: #FFFFFF; -fx-background-radius: 6px; -fx-border-color: #CBD5E1; -fx-border-radius: 6px; -fx-padding: 8px 12px; -fx-font-size: 13px;"/>
+        </VBox>
+    </VBox>
+
+    <!-- Botones de Acción al Pie -->
+    <HBox alignment="CENTER_RIGHT" spacing="10.0">
+        <Button text="Cancelar"
+                onAction="#cancelar"
+                prefWidth="110.0"
+                style="-fx-background-color: #FFFFFF; -fx-border-color: #CBD5E1; -fx-border-radius: 6px; -fx-background-radius: 6px; -fx-padding: 8px 16px; -fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #0F172A; -fx-cursor: hand;"/>
+        <Button text="Guardar Cambios"
+                onAction="#guardar"
+                prefWidth="140.0"
+                style="-fx-background-color: #162E62; -fx-text-fill: #FFFFFF; -fx-font-size: 13px; -fx-font-weight: bold; -fx-background-radius: 6px; -fx-padding: 8px 16px; -fx-cursor: hand;"/>
+    </HBox>
+</VBox>

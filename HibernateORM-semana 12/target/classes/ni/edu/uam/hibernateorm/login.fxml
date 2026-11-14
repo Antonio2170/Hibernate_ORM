@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml"
+           fx:controller="ni.edu.uam.hibernateorm.controller.LoginController"
+           prefHeight="520.0" prefWidth="480.0"
+           style="-fx-background-color: #0F172A; -fx-font-family: 'Segoe UI', sans-serif;">
+
+    <VBox alignment="CENTER"
+          maxWidth="380.0"
+          spacing="20.0"
+          style="-fx-background-color: #1E293B; -fx-background-radius: 16px; -fx-border-color: #334155; -fx-border-radius: 16px; -fx-border-width: 1px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 20, 0, 0, 8);">
+        <padding>
+            <Insets top="40.0" right="36.0" bottom="40.0" left="36.0"/>
+        </padding>
+
+        <!-- Cabecera Institucional UAM -->
+        <VBox alignment="CENTER" spacing="6.0">
+            <Label text="UNIVERSIDAD AMERICANA"
+                   style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #EAB308; -fx-letter-spacing: 1.5;"/>
+            <Label text="Iniciar Sesión"
+                   style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #F8FAFC;"/>
+            <Label text="Ingrese sus credenciales para acceder"
+                   style="-fx-font-size: 13px; -fx-text-fill: #94A3B8;"/>
+        </VBox>
+
+        <!-- Formulario de Acceso -->
+        <VBox spacing="16.0" alignment="CENTER_LEFT" maxWidth="Infinity">
+            <VBox spacing="6.0">
+                <Label text="Usuario"
+                       style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #CBD5E1;"/>
+                <TextField fx:id="txtUsuario"
+                           promptText="Ingrese su usuario"
+                           style="-fx-background-color: #0F172A; -fx-text-fill: #F8FAFC; -fx-prompt-text-fill: #475569; -fx-background-radius: 8px; -fx-border-color: #475569; -fx-border-radius: 8px; -fx-padding: 10px 14px; -fx-font-size: 14px;"/>
+            </VBox>
+
+            <VBox spacing="6.0">
+                <Label text="Contraseña"
+                       style="-fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #CBD5E1;"/>
+                <PasswordField fx:id="txtPassword"
+                               promptText="Ingrese su contraseña"
+                               style="-fx-background-color: #0F172A; -fx-text-fill: #F8FAFC; -fx-prompt-text-fill: #475569; -fx-background-radius: 8px; -fx-border-color: #475569; -fx-border-radius: 8px; -fx-padding: 10px 14px; -fx-font-size: 14px;"/>
+            </VBox>
+        </VBox>
+
+        <!-- Botón Primario -->
+        <Button text="Acceder al Sistema"
+                onAction="#iniciarSesion"
+                maxWidth="Infinity"
+                style="-fx-background-color: #4F46E5; -fx-text-fill: #FFFFFF; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 8px; -fx-padding: 12px 16px; -fx-cursor: hand;"/>
+
+        <!-- Enlace de Registro -->
+        <HBox alignment="CENTER" spacing="5.0">
+            <Label text="¿No tiene una cuenta?"
+                   style="-fx-text-fill: #94A3B8; -fx-font-size: 13px;"/>
+            <Hyperlink text="Registrarse aquí"
+                       onAction="#abrirRegistro"
+                       style="-fx-text-fill: #818CF8; -fx-font-size: 13px; -fx-font-weight: bold; -fx-underline: false; -fx-border-color: transparent;"/>
+        </HBox>
+    </VBox>
+</StackPane>
